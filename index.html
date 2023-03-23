@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Game</title>
+    <script src="./assets/script/script.js" defer></script>
+    <link rel="stylesheet" href="assets/style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word Game</title>
-  <script src="./assets/script/script.js" defer></script>
-  <link rel="stylesheet" href="assets/style/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-</head>
-
-<body>
-  <!--    Body     -->
-  <!-- End of body -->
-</body>
-
+  <body>
+    <!--    Body     -->
+    <div class="info grid">
+      <h1 class="title">Word Guessing Game</h1>
+      <p class="counterp">Time Left:</p>
+      <p class="points">Points:</p>
+    </div>
+    <div class="container game">
+      <div class="content grid">
+        <p class="wordBox textField">Placeholder</p>
+        <input type="text" class="guessBox textField" placeholder="Input Guess">
+        <button type="button" class="start button">Start</button>
+        <button type="button" class="reset button">Reset</button>
+      </div>
+    </div>
+    <!-- End of body -->
+  </body>
 </html>

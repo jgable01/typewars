@@ -6,7 +6,7 @@
   --app-bg-orange: #d47215;
   --app-bg-purple: #6a1fc0;
   --app-bg-dark: #1c1c1c;
-  --app-header-bg: #282a31;
+  --app-header-bg: #46474d;
   --app-bg-green: #4dcc3c;
   --app-blue-hover: #4896fc;
   --app-red: #ff3c57;
@@ -16,6 +16,7 @@
 
 body {
   background-color: var(--app-bg-dark);
+  overflow-y: hidden;
 }
 
 .container {
@@ -29,9 +30,83 @@ body {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - */
 /* Body                                          */
 /* - - - - - - - - - - - - - - - - - - - - - - - */
+
+.info {
+  text-align: center;
+  gap: 1rem;
+  grid-template-columns: repeat(1fr);
+  margin: 3rem;
+  padding: 10px;
+  justify-content: flex-end;
+}
+
+.title {
+  position: absolute;
+  word-wrap: break-word;
+}
+
+.info p {
+  background-color: var(--app-header-bg);
+  border-radius: 35px;
+  width: 5vw;
+  min-width: 180px;
+  color: #fff;
+  text-align: center;
+  height: auto;
+}
+
+.button {
+  border-radius: 25px;
+  height: 45px;
+  width: 110px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.start {
+  background-color: #4dcc3c;
+}
+
+.reset {
+  display: none;
+  background-color: var(--app-bg-blue);
+}
+
+.game {
+  place-items: center;
+  margin-top: -7vh;
+}
+
+.content {
+  width: 100%;
+  gap: 40px;
+  place-items: center;
+}
+
+.textField {
+  display: none;
+  background-color: var(--app-header-bg);
+  color: #fff;
+  border-radius: 35px;
+  padding: 8px;
+  min-width: 180px;
+  min-height: 45px;
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+}
+
+
+
 
 
 
