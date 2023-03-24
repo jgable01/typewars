@@ -129,6 +129,11 @@ h1 {
   position: absolute;
   color: red;
   cursor: pointer;
+  transition: all 0.33 ease-in-out;
+}
+
+.fa-xmark:hover {
+  transform: scale(1.1);
 }
 
 .head {
