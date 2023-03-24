@@ -113,6 +113,9 @@ body {
   min-width: 180px;
   min-height: 45px;
   text-align: center;
+  -webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; 
 }
 
 .guessBox:focus {
