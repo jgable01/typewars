@@ -40,16 +40,13 @@ body {
 
 .info {
   text-align: center;
-  gap: 1rem;
-  grid-template-columns: repeat(1fr);
   margin: 3rem;
   padding: 10px;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .title {
-  position: absolute;
-  word-wrap: break-word;
+  justify-content: left;
 }
 
 .info p {
@@ -57,6 +54,7 @@ body {
   border-radius: 35px;
   width: 5vw;
   min-width: 180px;
+  margin: 10px;
   color: #fff;
   text-align: center;
   height: auto;
@@ -141,3 +139,11 @@ h1 {
 /* - - - - - - - - - - - - - - - - - - - - - - - */
 /* End of body                                   */
 /* - - - - - - - - - - - - - - - - - - - - - - - */
+
+@media (max-width: 720px) {
+  .info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
