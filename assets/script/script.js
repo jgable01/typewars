@@ -204,7 +204,7 @@ function randomNum() {
 
 function startGame() {
   wordsTemp = [...words];
-  count = 5;
+  count = 99;
   points = 0;
   guesses = 0;
   pointCount.innerHTML = `Points: ${points}`;
