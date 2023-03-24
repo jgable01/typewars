@@ -17,9 +17,9 @@ const wordBox = document.querySelector(".wordBox");
 const textField = document.getElementsByClassName("textField");
 const resetBtn = document.querySelector(".reset");
 const scoreSheet = document.querySelector(".scoreSheet");
-const date = document.querySelector("date");
+const showDate = document.querySelector(".date");
 const hits = document.querySelector(".hits");
-const percentage = document.querySelector(".percentage");
+const showPercentage = document.querySelector(".percent");
 
 class Score {
   #date;
@@ -182,18 +182,18 @@ function correctGuess() {
 }
 
 function randomNum() {
-  return Math.floor(Math.random() * (wordsTemp.length - 0 + 1) + 0);
+  return Math.floor(Math.random() * (wordsTemp.length) + 0);
 }
 
 function startGame() {
-  isActive = true;
   wordsTemp = [...words];
   console.log(wordsTemp.length);
-  count = 99;
+  count = 90;
   points = 0;
   guesses = 0;
   pointCount.innerHTML = `Points: ${points}`;
   counter.innerHTML = `Time Left: ${count}`;
+  isActive = true;
   wordBox.innerHTML = wordsTemp[randomNum()];
 }
 
@@ -212,12 +212,21 @@ function resetGame() {
 }
 
 function displayScore() {
-  console.log(guesses);
-  const date = new Date();
-  const percent = (guesses / points);
-  date.toDateString();
-  const player = new Score(date, points, percent);
-  console.log(player);
+  let date = new Date();
+  let percent = 0;
+  let dateLocal = date.toDateString();
+  if (guesses > 0) {
+    percent = Math.round((points / guesses) * 100);
+  }
+  const player = new Score(dateLocal, points, percent);
+  showDate.innerHTML = `Date: ${player.date}`;
+  hits.innerHTML = `Score: ${player.hits}`;
+  showPercentage.innerHTML = `Percentage: ${player.percentage}%`;
+  scoreSheet.style.display = 'grid';
+}
+
+function closeScore() {
+  scoreSheet.style.display = 'none';
 }
 
 function update() {
@@ -228,6 +237,7 @@ function update() {
     guessBox.style.border = "";
   } else {
     if (isActive === true) {
+      isActive = false;
       displayScore();
       resetGame();
     }

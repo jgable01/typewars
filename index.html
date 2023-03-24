@@ -21,15 +21,20 @@
       <p class="points">Points:</p>
     </div>
     <div class="scoreSheet grid">
+      <i class="fa-solid fa-xmark" onclick="closeScore()"></i>
       <p class="grid results head">Game Results</p>
-      <p class="grid results date">Date: </p>
+      <p class="grid results date">Date:</p>
       <p class="grid results hits">Hits:</p>
-      <p class="grid results percent">Percentage: </p>
+      <p class="grid results percent">Percentage:</p>
     </div>
     <div class="container game">
       <div class="content grid">
         <p class="wordBox textField">Placeholder</p>
-        <input type="text" class="guessBox textField" placeholder="Input Guess">
+        <input
+          type="text"
+          class="guessBox textField"
+          placeholder="Input Guess"
+        />
         <button type="button" class="start button">Start</button>
         <button type="button" class="reset button">Reset</button>
       </div>
