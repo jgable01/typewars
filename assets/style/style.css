@@ -154,13 +154,14 @@ h1 {
   font-size: 1.4rem;
   padding: 5px;
   position: absolute;
-  color: red;
+  color: #ff0000;
   cursor: pointer;
-  transition: all 0.33 ease-in-out;
+  transition: all 0.15s ease-in;
 }
 
 .fa-xmark:hover {
   transform: scale(1.1);
+  color: var(--app-red-hover)
 }
 
 .head {

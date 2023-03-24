@@ -204,7 +204,7 @@ function randomNum() {
 
 function startGame() {
   wordsTemp = [...words];
-  count = 99;
+  count = 5;
   points = 0;
   guesses = 0;
   pointCount.innerHTML = `Points: ${points}`;
@@ -261,7 +261,6 @@ function update() {
   if (count != 0 && isActive === true) {
     count -= 1;
     counter.innerHTML = `Time Left: ${count}`;
-    guessBox.style.border = "";
   } else {
     if (isActive === true) {
       isActive = false;
