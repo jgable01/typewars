@@ -61,20 +61,31 @@ body {
 }
 
 .button {
+  color: #fff;
+  font-weight: 600;
   border-radius: 25px;
   height: 45px;
   width: 110px;
   padding: 7px;
   cursor: pointer;
+  transition: all 0.33 ease-in-out;
 }
 
 .start {
   background-color: #4dcc3c;
 }
 
+.start:hover {
+  background-color: #64e054;
+}
+
 .reset {
   display: none;
   background-color: var(--app-bg-blue);
+}
+
+.reset:hover {
+  background-color: var(--app-blue-hover);
 }
 
 .game {
@@ -113,7 +124,7 @@ h1 {
   top: calc(45% - 130px);
   left: calc(45% - 130px);
   height: clamp(300px, 27vh, 250px);
-  width: clamp(300px, 27vw, 600px);
+  width: clamp(300px, 27vw, 500px);
   text-align: center;
 }
 

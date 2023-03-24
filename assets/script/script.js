@@ -184,7 +184,12 @@ function correctGuess() {
   guessBox.style.border = "1px solid #4dcc3c";
   wordBox.innerHTML = wordsTemp[randomNum()];
   points += 1;
+  pointCount.innerHTML = `Points: ${points}`;
   guessBox.value = "";
+  if(wordsTemp.length === 0) {
+    displayScore()
+    resetGame();
+  }
 }
 
 function randomNum() {
@@ -249,7 +254,6 @@ function update() {
   if (count != 0 && isActive === true) {
     count -= 1;
     counter.innerHTML = `Time Left: ${count}`;
-    pointCount.innerHTML = `Points: ${points}`;
     guessBox.style.border = "";
   } else {
     if (isActive === true) {
