@@ -223,6 +223,7 @@ function resetGame() {
   resetBtn.style.display = "none";
   wordBox.style.display = "none";
   guessBox.style.display = "none";
+  guessBox.style.border = '';
 }
 
 function displayScore() {
