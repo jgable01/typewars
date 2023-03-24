@@ -22,6 +22,7 @@ const hits = document.querySelector(".hits");
 const showPercentage = document.querySelector(".percent");
 const backgroundMusic = document.querySelector('.backgroundMusic');
 const pointSound = document.querySelector('.pointSound');
+const incorrectSound = document.querySelector('.incorrectSound');
 
 class Score {
   #date;
@@ -161,11 +162,13 @@ resetBtn.addEventListener("click", () => {
 });
 
 guessBox.addEventListener("keydown", (event) => {
+  resetSounds();
   if (event.key === "Enter") {
     guesses += 1;
     if (guessBox.value.trim().toUpperCase() === wordBox.innerHTML.toUpperCase()) {
       correctGuess();
     } else {
+      incorrectSound.play();
       guessBox.style.border = "1px solid #ff3c57";
       guessBox.value = "";
     }
@@ -233,6 +236,13 @@ function displayScore() {
 
 function closeScore() {
   scoreSheet.style.display = "none";
+}
+
+function resetSounds() {
+  pointSound.pause();
+  incorrectSound.pause();
+  pointSound.currentTime = 0;
+  incorrectSound.currentTime = 0;
 }
 
 function update() {
