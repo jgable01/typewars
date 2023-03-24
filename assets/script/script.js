@@ -20,6 +20,8 @@ const scoreSheet = document.querySelector(".scoreSheet");
 const showDate = document.querySelector(".date");
 const hits = document.querySelector(".hits");
 const showPercentage = document.querySelector(".percent");
+const backgroundMusic = document.querySelector('.backgroundMusic');
+const pointSound = document.querySelector('.pointSound');
 
 class Score {
   #date;
@@ -161,7 +163,7 @@ resetBtn.addEventListener("click", () => {
 guessBox.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     guesses += 1;
-    if (guessBox.value.trim() === wordBox.innerHTML) {
+    if (guessBox.value.trim().toUpperCase() === wordBox.innerHTML.toUpperCase()) {
       correctGuess();
     } else {
       guessBox.style.border = "1px solid #ff3c57";
@@ -171,6 +173,7 @@ guessBox.addEventListener("keydown", (event) => {
 });
 
 function correctGuess() {
+  pointSound.play()
   let wordIndex = wordsTemp.indexOf(wordBox.innerHTML);
   console.log(`Index: ${wordIndex}`);
   wordsTemp.splice(wordIndex, 1);
@@ -182,7 +185,7 @@ function correctGuess() {
 }
 
 function randomNum() {
-  return Math.floor(Math.random() * (wordsTemp.length) + 0);
+  return Math.floor(Math.random() * wordsTemp.length + 0);
 }
 
 function startGame() {
@@ -194,11 +197,14 @@ function startGame() {
   pointCount.innerHTML = `Points: ${points}`;
   counter.innerHTML = `Time Left: ${count}`;
   isActive = true;
+  backgroundMusic.play();
   wordBox.innerHTML = wordsTemp[randomNum()];
 }
 
 function resetGame() {
   isActive = false;
+  backgroundMusic.pause();
+  backgroundMusic.currentTime = 0;
   displayScore();
   count = 0;
   points = 0;
@@ -222,11 +228,11 @@ function displayScore() {
   showDate.innerHTML = `Date: ${player.date}`;
   hits.innerHTML = `Score: ${player.hits}`;
   showPercentage.innerHTML = `Percentage: ${player.percentage}%`;
-  scoreSheet.style.display = 'grid';
+  scoreSheet.style.display = "grid";
 }
 
 function closeScore() {
-  scoreSheet.style.display = 'none';
+  scoreSheet.style.display = "none";
 }
 
 function update() {
@@ -241,6 +247,5 @@ function update() {
       displayScore();
       resetGame();
     }
-
   }
 }

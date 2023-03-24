@@ -101,6 +101,10 @@ body {
   text-align: center;
 }
 
+.guessBox:focus {
+  outline: 1px solid rgb(255, 255, 255, 0.45);
+}
+
 h1 {
   color: #fff;
 }
@@ -108,8 +112,8 @@ h1 {
 .scoreSheet {
   display: none;
   position: absolute;
-  top: calc(45% - 130px); 
-  left: calc(45% - 130px); 
+  top: calc(45% - 130px);
+  left: calc(45% - 130px);
   height: clamp(300px, 27vh, 250px);
   width: clamp(300px, 27vw, 600px);
   text-align: center;
@@ -134,8 +138,6 @@ h1 {
   font-size: 2rem;
 }
 
-
 /* - - - - - - - - - - - - - - - - - - - - - - - */
 /* End of body                                   */
 /* - - - - - - - - - - - - - - - - - - - - - - - */
-
