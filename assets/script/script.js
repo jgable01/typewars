@@ -20,9 +20,9 @@ const scoreSheet = document.querySelector(".scoreSheet");
 const showDate = document.querySelector(".date");
 const hits = document.querySelector(".hits");
 const showPercentage = document.querySelector(".percent");
-const backgroundMusic = document.querySelector('.backgroundMusic');
-const pointSound = document.querySelector('.pointSound');
-const incorrectSound = document.querySelector('.incorrectSound');
+const backgroundMusic = document.querySelector(".backgroundMusic");
+const pointSound = document.querySelector(".pointSound");
+const incorrectSound = document.querySelector(".incorrectSound");
 
 class Score {
   #date;
@@ -165,29 +165,35 @@ guessBox.addEventListener("keydown", (event) => {
   resetSounds();
   if (event.key === "Enter") {
     guesses += 1;
-    if (guessBox.value.trim().toUpperCase() === wordBox.innerHTML.toUpperCase()) {
+    if (
+      guessBox.value.trim().toUpperCase() === wordBox.innerHTML.toUpperCase()
+    ) {
       correctGuess();
     } else {
       incorrectSound.play();
-      guessBox.style.border = "1px solid #ff3c57";
+      guessBox.classList.add("incorrect");
+      setTimeout(() => {
+        guessBox.classList.remove("incorrect");
+      }, 750);
       guessBox.value = "";
     }
   }
 });
 
 function correctGuess() {
-  pointSound.play()
+  pointSound.play();
   let wordIndex = wordsTemp.indexOf(wordBox.innerHTML);
-  console.log(`Index: ${wordIndex}`);
   wordsTemp.splice(wordIndex, 1);
-  console.log(wordsTemp);
-  guessBox.style.border = "1px solid #4dcc3c";
+  guessBox.classList.add("correct");
+  setTimeout(() => {
+    guessBox.classList.remove("correct");
+  }, 750);
   wordBox.innerHTML = wordsTemp[randomNum()];
   points += 1;
   pointCount.innerHTML = `Points: ${points}`;
   guessBox.value = "";
-  if(wordsTemp.length === 0) {
-    displayScore()
+  if (wordsTemp.length === 0) {
+    displayScore();
     resetGame();
   }
 }
@@ -198,7 +204,6 @@ function randomNum() {
 
 function startGame() {
   wordsTemp = [...words];
-  console.log(wordsTemp.length);
   count = 90;
   points = 0;
   guesses = 0;
@@ -223,7 +228,8 @@ function resetGame() {
   resetBtn.style.display = "none";
   wordBox.style.display = "none";
   guessBox.style.display = "none";
-  guessBox.style.border = '';
+  guessBox.style.border = "";
+  guessBox.value = "";
 }
 
 function displayScore() {

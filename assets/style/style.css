@@ -47,6 +47,11 @@ body {
 
 .title {
   justify-content: left;
+  color: var(--app-bg-blue);
+}
+
+.title span {
+  color: var(--app-red);
 }
 
 .info p {
@@ -114,6 +119,14 @@ body {
   border: 1px solid rgb(255, 255, 255, 0.45);
 }
 
+.guessBox.correct {
+  border: 1px solid #4dcc3c;
+}
+
+.guessBox.incorrect {
+  border: 1px solid #ff3c57;
+}
+
 h1 {
   color: #fff;
 }
@@ -162,5 +175,4 @@ h1 {
     align-items: center;
     margin: 15px;
   }
-
 }
