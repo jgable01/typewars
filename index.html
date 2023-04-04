@@ -17,7 +17,10 @@
     <!--    Body     -->
     <audio class="backgroundMusic" src="./assets/audio/background.mp3"></audio>
     <audio class="pointSound" src="./assets/audio/pointSound.mp3"></audio>
-    <audio class="incorrectSound" src="./assets/audio/incorrectSound.mp3"></audio>
+    <audio
+      class="incorrectSound"
+      src="./assets/audio/incorrectSound.mp3"
+    ></audio>
     <div class="info flex">
       <div class="leftSide">
         <h1 class="title">Type<span>Wars</span></h1>
@@ -27,6 +30,10 @@
         <p class="points">Points:</p>
       </div>
     </div>
+    <div class="scoreBoard">
+      <p>scoreboard</p>
+      <ul></ul>
+    </div>
     <div class="scoreSheet grid">
       <i class="fa-solid fa-xmark" onclick="closeScore()"></i>
       <p class="grid results head">Game Results</p>
@@ -34,7 +41,7 @@
       <p class="grid results hits">Hits:</p>
       <p class="grid results percent">Percentage:</p>
     </div>
-    <div class="container game">
+    <div class="container game grid">
       <div class="content grid">
         <p class="wordBox textField">Placeholder</p>
         <input

@@ -23,6 +23,7 @@ const showPercentage = document.querySelector(".percent");
 const backgroundMusic = document.querySelector(".backgroundMusic");
 const pointSound = document.querySelector(".pointSound");
 const incorrectSound = document.querySelector(".incorrectSound");
+const scoreBoard = document.querySelector(".scoreBoard");
 
 class Score {
   #date;
@@ -244,6 +245,40 @@ function displayScore() {
   hits.innerHTML = `Score: ${player.hits}`;
   showPercentage.innerHTML = `Percentage: ${player.percentage}%`;
   scoreSheet.style.display = "grid";
+  saveScore(player);
+}
+
+function saveScore(player) {
+  let scores = JSON.parse(localStorage.getItem("score")) || [];
+  const playerScores = {
+    date: player.date,
+    hits: player.hits,
+    percentage: player.percentage,
+  };
+  scores.push(playerScores);
+  scores.sort((a, b) => b.hits - a.hits);
+
+  const topScores = scores.length > 9 ? scores.splice(0, 9) : scores;
+  localStorage.setItem("score", JSON.stringify(topScores));
+  getScore();
+}
+
+function getScore() {
+  console.log(JSON.parse(localStorage.getItem("score")));
+  const scoresLocal = JSON.parse(localStorage.getItem("score"));
+  scoresLocal.forEach((score, index) => {
+    let scoreRow = document.createElement("ul");
+    let scoreNum = document.createElement("li");
+    let scoreHits = document.createElement("li");
+    let scorePercent = document.createElement("li");
+    scoreNum.innerHTML = `#${index + 1}`;
+    scoreHits.innerHTML = `${score.hits} Words`;
+    scorePercent.innerHTML = `${score.percentage}%`;
+    scoreRow.appendChild(scoreNum);
+    scoreRow.appendChild(scoreHits);
+    scoreRow.appendChild(scorePercent);
+    scoreBoard.appendChild(scoreRow);
+  });
 }
 
 function closeScore() {
@@ -269,3 +304,9 @@ function update() {
     }
   }
 }
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  Store Player Data In Local Storage
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
