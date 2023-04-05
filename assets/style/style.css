@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: var(--app-bg-dark);
+  background: linear-gradient(to bottom, #bb56c6, #2a0b44);
   overflow-y: hidden;
 }
 
@@ -126,7 +126,7 @@ body {
 
 .textField {
   display: none;
-  background-color: var(--app-header-bg);
+  background-color: rgb(255 255 255 / .33);
   color: #fff;
   border-radius: 35px;
   padding: 8px;
@@ -136,6 +136,11 @@ body {
   -webkit-user-select: none; 
   -ms-user-select: none; 
   user-select: none; 
+}
+
+.guessBox {
+  background-color: #fff;
+  color: #212123;
 }
 
 .guessBox:focus {
@@ -148,6 +153,11 @@ body {
 
 .guessBox.incorrect {
   border: 1px solid #ff3c57;
+}
+
+.guessBox::placeholder {
+  color: #c6c3c3;
+  font-size: .9rem;
 }
 
 h1 {
@@ -170,7 +180,7 @@ h1 {
 }
 
 .results {
-  background-color: var(--app-header-bg);
+  background-color: rgb(255 255 255 / 0.12);
   color: #fff;
   padding: 50px;
 }
@@ -197,7 +207,8 @@ h1 {
 .scoreBoard {
   height: 100vh;
   justify-content: space-around;
-  min-width: 25%;
+  min-width: 15%;
+  max-width: 300px;
   position: absolute;
   right: 0%;
   top: 0%;
