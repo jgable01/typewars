@@ -263,8 +263,9 @@ h1 {
   }
 
   .content {
-    position: absolute;
-    bottom: 3.3%;
+    position: relative;
+    display: grid;
+    place-items: center;
   }
 }
 @media (max-height: 1150px) {
@@ -273,19 +274,11 @@ h1 {
     display: none;
   }
 
-  .content {
-    top: 35%;
-    max-height: 450px;
-  }
 }
 
 @media (max-height: 750px) {
    .title {
     display: none;
-   }
-
-   .content {
-    top: 18%;
    }
 
 }
