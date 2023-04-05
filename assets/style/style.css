@@ -253,15 +253,17 @@ h1 {
   .scoreBoard {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 9%;
     left: 0;
     right: 0;
-    top: 5%;
+    top: 10%;
     width: clamp(300px, 27vw, 500px);
     height: auto;
   }
 
   .content {
-    margin-top: 47vh;
+    position: absolute;
+    bottom: 8.5%;
   }
 }
+
+
