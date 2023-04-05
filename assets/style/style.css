@@ -275,13 +275,17 @@ h1 {
 
   .content {
     top: 35%;
-    max-height: 350px;
+    max-height: 450px;
   }
 }
 
 @media (max-height: 750px) {
    .title {
     display: none;
+   }
+
+   .content {
+    top: 18%;
    }
 
 }
