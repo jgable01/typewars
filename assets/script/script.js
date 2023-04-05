@@ -262,8 +262,8 @@ function saveScore(player) {
   localStorage.setItem("score", JSON.stringify(topScores));
   getScore();
 }
-
 function getScore() {
+  scoreBoard.innerHTML = "<p>Score Board</p> <ul></ul>"
   console.log(JSON.parse(localStorage.getItem("score")));
   const scoresLocal = JSON.parse(localStorage.getItem("score"));
   scoresLocal.forEach((score, index) => {
