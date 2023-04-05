@@ -34,6 +34,10 @@ body {
   display: grid;
 }
 
+.hide {
+  display: none;
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - */
 /* Body                                          */
 /* - - - - - - - - - - - - - - - - - - - - - - - */
@@ -54,7 +58,7 @@ body {
   color: var(--app-red);
 }
 
-.info p {
+/* .info p {
   background-color: var(--app-header-bg);
   border-radius: 35px;
   width: 5vw;
@@ -63,6 +67,17 @@ body {
   color: #fff;
   text-align: center;
   height: auto;
+} */
+
+.counterp {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.points {
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
 }
 
 .button {
@@ -101,10 +116,12 @@ body {
 }
 
 .content {
-  width: 350px;
+  width: clamp(300px, 27vw, 500px);
+  padding: 15px;
   gap: 40px;
   place-items: center;
   overflow: hidden;
+  background-color: rgb(255 255 255 / 0.12);
 }
 
 .textField {
@@ -126,7 +143,7 @@ body {
 }
 
 .guessBox.correct {
-  border: 1px solid #4dcc3c;
+  border: 1px solid #1a7f0c;
 }
 
 .guessBox.incorrect {
@@ -137,13 +154,18 @@ h1 {
   color: #fff;
 }
 
-.scoreSheet {
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  margin-top: -12.5vh;
+  display: grid;
+  place-items: center;
   display: none;
-  position: absolute;
-  top: calc(45% - 130px);
-  left: calc(45% - 130px);
-  height: clamp(300px, 27vh, 250px);
-  width: clamp(300px, 27vw, 500px);
+}
+
+.scoreSheet {
+  width: clamp(350px, 27vw, 500px);
+  height: clamp(300px, 27vh, 400px);
   text-align: center;
 }
 
@@ -173,10 +195,13 @@ h1 {
 }
 
 .scoreBoard {
+  height: 100vh;
+  justify-content: space-around;
   min-width: 25%;
   position: absolute;
   right: 4.3%;
-  background-color: var(--app-header-bg);
+  top: 5%;
+  background-color: rgb(255 255 255 / 0.12);
   text-align: center;
 }
 
@@ -214,6 +239,16 @@ h1 {
     margin: 15px;
   }
   .scoreBoard {
-    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    left: 0;
+    right: 0;
+    width: clamp(300px, 27vw, 500px);
+    height: fit-content;
+  }
+
+  .content {
+    margin-top: 45vh;
   }
 }

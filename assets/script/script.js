@@ -24,6 +24,8 @@ const backgroundMusic = document.querySelector(".backgroundMusic");
 const pointSound = document.querySelector(".pointSound");
 const incorrectSound = document.querySelector(".incorrectSound");
 const scoreBoard = document.querySelector(".scoreBoard");
+const content = document.querySelector(".content");
+const wrapper = document.querySelector(".wrapper");
 
 class Score {
   #date;
@@ -209,7 +211,7 @@ function startGame() {
   points = 0;
   guesses = 0;
   pointCount.innerHTML = `Points: ${points}`;
-  counter.innerHTML = `Time Left: ${count}`;
+  counter.innerHTML = `<i class="fa-solid fa-clock"></i>: ${count}`;
   isActive = true;
   backgroundMusic.play();
   wordBox.innerHTML = wordsTemp[randomNum()];
@@ -223,7 +225,7 @@ function resetGame() {
   count = 0;
   points = 0;
   guesses = 0;
-  counter.innerHTML = `Time Left: ${count}`;
+  counter.innerHTML = `<i class="fa-solid fa-clock"></i>: ${count}`;
   pointCount.innerHTML = `Points: ${points}`;
   startBtn.style.display = "inline";
   resetBtn.style.display = "none";
@@ -234,6 +236,9 @@ function resetGame() {
 }
 
 function displayScore() {
+  content.classList.add('hide');
+  scoreBoard.classList.add('hide');
+  wrapper.style.display = "grid";
   let date = new Date();
   let percent = 0;
   let dateLocal = date.toDateString();
@@ -282,7 +287,10 @@ function getScore() {
 }
 
 function closeScore() {
-  scoreSheet.style.display = "none";
+  scoreSheet.classList.add('hide')
+  content.classList.remove('hide');
+  scoreBoard.classList.remove('hide');
+  wrapper.style.display = "none";
 }
 
 function resetSounds() {
@@ -295,7 +303,7 @@ function resetSounds() {
 function update() {
   if (count != 0 && isActive === true) {
     count -= 1;
-    counter.innerHTML = `Time Left: ${count}`;
+    counter.innerHTML = `<i class="fa-solid fa-clock"></i>: ${count}`;
   } else {
     if (isActive === true) {
       isActive = false;
