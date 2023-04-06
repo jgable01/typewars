@@ -268,7 +268,7 @@ h1 {
     place-items: center;
   }
 }
-@media (max-height: 1150px) {
+@media (max-height: 1150px) and (max-width: 960px) {
 
   .scoreBoard {
     display: none;
